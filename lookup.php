@@ -9,7 +9,6 @@ if (strlen($id)) {
 	if ("sender" == $type) {
 		echo json_encode(getSender($id));
 	} else {
-		$id = $id - 2974;
     	//return a valid message as json
     	$message = getMessage($id);
  		echo json_encode($message);
