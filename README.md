@@ -1,4 +1,4 @@
-curlic.eu
+Thank You Back
 =========
 
-website for signature jewelry
+Demoware
