@@ -109,7 +109,7 @@
       $(document).ready(function() {
         $("#lookupId").click(function() {
           var messageId = $("#recordingId").val();
-          $.getJSON( "lookup.php", { messageId: messageId } )
+          $.getJSON( "lookup.php", { id: messageId } )
             .done(function( json ) {
 		console.log(json);
               $("#previewAudio").attr("href",json.url);
