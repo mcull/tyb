@@ -106,7 +106,8 @@
           var messageId = $("#recordingId").val();
           $.getJSON( "lookup.php", { messageId: messageId } )
             .done(function( json ) {
-              console.log( "JSON Data: " + json );
+              $("#previewAudio").attr("href",json.audio_url);
+              $("#smsNum").html(json.caller_id);
               $(".row").show();
             })
             .fail(function( jqxhr, textStatus, error ) {
