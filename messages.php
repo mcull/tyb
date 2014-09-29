@@ -21,7 +21,7 @@ function addMessage($caller_id, $recording_url) {
  
     // Performing SQL query
     $query = sprintf("insert into messages ("
-        . "date,from,audio_url)"
+        . "message_date,caller_id,audio_url)"
         . " values (now(),'%s','%s')", $caller_id,
         $recording_url);
  
@@ -45,9 +45,7 @@ function getMessages($voicemail_exten,$flag=0){
     $flag = mysql_real_escape_string($flag);
  
     // Performing SQL query
-    $query = sprintf("select * from messages where message_flag=%d and "
-        . "message_frn_vmb_extension='%s' order by message_date", $flag,
-        $voicemail_exten);
+    $query = "select * from messages order by message_date";
  
     $result = mysql_query($query) or die('Query failed: ' . mysql_error());
  
@@ -80,10 +78,10 @@ function getMessage($msg_id){
  
     $message = array();
     if($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
-        $message['id']=$line['message_id'];
+        $message['id']=$line['id'];
         $message['date']=$line['message_date'];
-        $message['from']=$line['message_from'];
-        $message['url']=$line['message_audio_url'];
+        $message['from']=$line['caller_id'];
+        $message['url']=$line['audio_url'];
     }
  
     mysql_close();
