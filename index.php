@@ -103,10 +103,8 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
 
           $.getJSON( "addRecipient.php", { sid:  senderId, name: name, email: email,mid: messageId} )
             .done(function( json ) {
-//          $.getJSON( "addRecipient.php", { sid:  senderId, name: name, email: email,mid: messageId} )
-            $.getJSON("sendThanks.php",{sid:senderId,message:message,name:name,email:email,voxId:msgId})
+            $.getJSON("sendThanks.php",{sid:senderId,name:name,email:email,voxId:messageId,message:message})
               .done(function(innerJson) {
-              console.log("trying to send thanks?? " + innerJson);
             })
             .fail(function( jqxhr2, textStatus2, error2 ) {
               var err2 = textStatus2 + ", " + error2;
