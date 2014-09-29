@@ -5,7 +5,7 @@ include "senders.php";
 $id = $_REQUEST['id'];
 $type = $_REQUEST['t'];
  
-if (strlen($id) && strlen($type)) {
+if (strlen($id)) {
 	if ("sender" == $type) {
 		echo json_encode(getSender($id));
 	} else {
