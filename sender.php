@@ -54,7 +54,7 @@
         Listen to recording
       </div>
       <div class="large-6 medium-6 small-6 columns">
-        <a href="" id="previewAudio">Play</a>
+        <a href="" target="_new" id="previewAudio">Play</a>
       </div>
     </div>
     <div class="row" id="smsRow" style="display:none">
