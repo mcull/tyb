@@ -7,6 +7,10 @@ $senderId = $_REQUEST['id'];
 $sender = getSender($senderId);
 $message = getMessage($sender['recordingId']);
 
+echo $sender['recordingId'];
+#echo $message[0];
+exit();
+
 ?>
 
 <!doctype html>
@@ -44,7 +48,7 @@ $message = getMessage($sender['recordingId']);
         Marc has included a personal message for you:
       </div>
       <div class="large-6 medium-6 small-6 columns">
-        <a class="round button" id="play" target="_new" href="<?php echo $message['audio_url']; ?>">Play</button>
+        <a class="round button" id="play" target="_new" href="<?php echo $message['audio_url']; ?>">Play</a>
       </div>
     </div>
     <div class="row">
