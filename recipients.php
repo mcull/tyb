@@ -24,7 +24,7 @@ function addRecipient($senderId,$name,$email,$phone) {
     // Performing SQL query
     $query = sprintf("insert into recipients ("
         . "sender_id,name,email,phone)"
-        . " values (%d,'%s','%s','%s')", $sender_id,$name,$email,$phone);
+        . " values (%d,'%s','%s','%s')", $senderId,$name,$email,$phone);
  
     mysql_query($query) or die('Query failed: ' . mysql_error());
  
