@@ -99,16 +99,18 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
           var email = $('#email').val();
           var message = $('#textMessage').val();
           var messageId = $('#msgId').val();
+		
 
           $.getJSON( "addRecipient.php", { sid:  senderId, name: name, email: email,mid: messageId} )
             .done(function( json ) {
+//          $.getJSON( "addRecipient.php", { sid:  senderId, name: name, email: email,mid: messageId} )
             $.getJSON("sendThanks.php",{sid:senderId,message:message,name:name,email:email,voxId:msgId})
-              .done(function(json) {
-              console.log("trying to send thanks?? " + json);
+              .done(function(innerJson) {
+              console.log("trying to send thanks?? " + innerJson);
             })
-            .fail(function( jqxhr, textStatus, error ) {
-              var err = textStatus + ", " + error;
-              console.log( "Request Failed: " + err );
+            .fail(function( jqxhr2, textStatus2, error2 ) {
+              var err2 = textStatus2 + ", " + error2;
+              console.log( "Request Failed: " + err2 );
             });
           })
           .fail(function( jqxhr, textStatus, error ) {
