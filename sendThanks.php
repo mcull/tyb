@@ -4,7 +4,7 @@
     include "messages.php";
     include "senders.php";
 
-    function shortenUrl($url) {}
+    function shortenUrl($url) {
 
         // Get API key from : http://code.google.com/apis/console/
         $apiKey = 'MyAPIKey';
