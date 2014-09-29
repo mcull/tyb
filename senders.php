@@ -8,7 +8,7 @@ $db_passwd='xUyUcRa4';
  
 
  
-function addSender($recording_id,$sms,$email) {
+function addSender($recording_id,$sms,$firstName,$lastName,$email) {
     global $db_name, $db_host,$db_user,$db_passwd;
  
     mysql_connect($db_host, $db_user, $db_passwd)
@@ -22,8 +22,8 @@ function addSender($recording_id,$sms,$email) {
  
     // Performing SQL query
     $query = sprintf("insert into senders ("
-        . "recording_id,sms,email)"
-        . " values (%d,%d,'%s')", $recording_id,$sms,$email);
+        . "recording_id,sms,firstName,lastName,email)"
+        . " values (%d,%d,'%s','%s',%s')", $recording_id,$sms,$firstName,$lastName,$email);
  
     mysql_query($query) or die('Query failed: ' . mysql_error());
  
@@ -77,6 +77,8 @@ function getSender($id){
         $sender['id']=$line['id'];
         $sender['recording_id']=$line['recording_id'];
         $sender['sms']=$line['sms'];
+        $sender['firstName']=$line['firstName'];
+        $sender['lastName']=$line['lastName'];
         $sender['email']=$line['email'];
         $sender['date']=$line['create_dt'];
     }

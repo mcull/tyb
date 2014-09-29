@@ -69,10 +69,23 @@
         <input type="checkbox" name="sms" id="sms" checked>  SMS?
       </div>
     </div>
-    <div class="row roundTwo" id="emailRow" style="display:none" >
+    <div class="row" id="emailRow" style="display:none" >
       <hr>
       <div class="large-1 medium-1 small-1 columns">
         <h2>5</h2>
+      </div>
+      <div class="large-5 medium-5 small-5 columns">
+        Enter Name
+      </div>
+      <div class="large-6 medium-6 small-6 columns">
+        <input type="text" name="firstName" id="firstName" placeholder="first">
+        <input type="text" name="lastName" id="lastName" placeholder="last">
+      </div>
+    </div>
+    <div class="row" id="emailRow" style="display:none" >
+      <hr>
+      <div class="large-1 medium-1 small-1 columns">
+        <h2>6</h2>
       </div>
       <div class="large-5 medium-5 small-5 columns">
         Enter email
@@ -81,10 +94,10 @@
         <input type="text" name="email" id="email">
       </div>
     </div>
-    <div class="row roundTwo" id="QR" style="display:none" >
+    <div class="row" id="QR" style="display:none" >
       <hr>
       <div class="large-1 medium-1 small-1 columns">
-        <h2>6</h2>
+        <h2>7</h2>
       </div>
       <div class="large-5 medium-5 small-5 columns">
        Generate QR Code and URL
@@ -129,7 +142,9 @@
           var recordingId = $('#recordingId').val();
           var sms = $('#sms').is(':checked') ? 1 : 0;
           var email = $('#email').val();
-          $.getJSON( "addSender.php", { rid:  recordingId, sms: sms, email: email} )
+          var fName = $('#firstName').val();
+          var lName = $('#lastName').val();
+          $.getJSON( "addSender.php", { rid:  recordingId, sms: sms, email: email,firstName:fName, lastName:lName} )
             .done(function( json ) {
               console.log(json);
               var url = "http://54.165.184.141?id=" + json;
