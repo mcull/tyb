@@ -27,7 +27,8 @@
     $sms = $client->account->messages->sendMessage(
         "646-374-2529", 
         $gifterPhone,
-        "Message from $name via ThankYouBack: \"$message\""
+        "Message from $name via ThankYouBack: \"$message\"",
+        array($voxUrl)
     );
     echo '{"sucess":"true"}';
 ?>
