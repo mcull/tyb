@@ -71,7 +71,7 @@ function getMessage($msg_id){
     $msg_id = mysql_real_escape_string($msg_id);
  
     // Performing SQL query
-    $query = sprintf("select * from messages where message_id=%d",$msg_id);
+    $query = sprintf("select * from messages where id=%d",$msg_id);
  
  
     $result = mysql_query($query) or die('Query failed: ' . mysql_error());
