@@ -19,11 +19,13 @@ function addSender($recording_id,$sms,$firstName,$lastName,$email) {
     $recording_id = mysql_real_escape_string($recording_id);
     $sms = mysql_real_escape_string($sms);
     $email = mysql_real_escape_string($email);
+    $firstName = mysql_real_escape_string($firstName);
+    $lastName = mysql_real_escape_string($lastName);
  
     // Performing SQL query
     $query = sprintf("insert into senders ("
         . "recording_id,sms,firstName,lastName,email)"
-        . " values (%d,%d,'%s','%s',%s')", $recording_id,$sms,$firstName,$lastName,$email);
+        . " values (%d,%d,'%s','%s','%s')", $recording_id,$sms,$firstName,$lastName,$email);
  
     mysql_query($query) or die('Query failed: ' . mysql_error());
  
