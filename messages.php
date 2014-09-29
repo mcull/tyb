@@ -21,7 +21,7 @@ function addMessage($caller_id, $recording_url) {
  
     // Performing SQL query
     $query = sprintf("insert into messages ("
-        . "message_date,message_from,message_audio_url)"
+        . "date,from,audio_url)"
         . " values (now(),'%s','%s')", $caller_id,
         $recording_url);
  
