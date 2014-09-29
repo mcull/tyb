@@ -63,13 +63,13 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
     </div>
     <div class="row">
       <div class="large-6 medium-6 small-6 columns">
-        Or send <?php echo $fName; ?> $messageLabel <br>
+        Or send <?php echo $fName; ?> <?php echo $messageLabel; ?><br>
         <small>(your phone number and email will not be shown)</small>
       </div>
       <div class="large-6 medium-6 small-6 columns">
         <textarea id="textMessage"></textarea>
-        <input type="text" placeholder="Your Name" />
-        <input type="email" placeholder="Your Email address" />
+        <input type="text" id="name"  placeholder="Your Name" />
+        <input type="email" id="email" placeholder="Your Email address" />
       </div>
     </div>
     <div class="row">
@@ -91,11 +91,30 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>
       $(document).foundation();
-      var senderId = <? echo $senderId; ?>;
+      var senderId = <?php echo $senderId; ?>;
  
       $(document).ready(function() {
         $("#send").click(function() {
-          alert("xx");
+          var name = $('#name').val();
+          var email = $('#email').val();
+          var message = $('#textMessage').val();
+          var messageId = $('#msgId').val();
+
+          $.getJSON( "addRecipient.php", { sid:  senderId, name: name, email: email,mid: messageId} )
+            .done(function( json ) {
+	      $.getJSON("sendThanks.php",{sid:senderId,message:message,name:name,email:email,voxId:msgId}).done(function(json) {
+                console.log("trying to send thanks?? " + json);
+	      })
+	      .fail(function( jqxhr, textStatus, error ) {
+                var err = textStatus + ", " + error;
+                console.log( "Request Failed: " + err );
+              })
+            })
+	    .fail(function( jqxhr, textStatus, error ) {
+              var err = textStatus + ", " + error;
+              console.log( "Request Failed: " + err );
+            });
+
         });
       });
 

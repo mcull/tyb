@@ -12,7 +12,7 @@ $phone = "";
 
 if (strlen($messageId)) {
 	$message = getMessage($messageId);
-	$phone = $message['caller_id']; 
+	$phone = $message['from']; 
 }
  
 if (strlen($senderId) && strlen($name) && strlen($email)) {
