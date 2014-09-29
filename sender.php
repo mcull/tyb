@@ -140,6 +140,7 @@
 
        $("#generateQR").click(function() {
           var recordingId = $('#recordingId').val();
+          alert(recordingId);
           var sms = $('#sms').is(':checked') ? 1 : 0;
           var email = $('#email').val();
           var fName = $('#firstName').val();
