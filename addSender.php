@@ -8,7 +8,6 @@ $email = $_REQUEST['email'];
  
 if (strlen($recordingId) && strlen($sms) && strlen($email)) {
  		echo json_encode(addSender($recording_id,$sms,$email));
- 	}
 }
  
 ?>

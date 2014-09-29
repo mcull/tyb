@@ -129,12 +129,17 @@
           var recordingId = $('#recordingId').val();
           var sms = $('#sms').is(':checked') ? 1 : 0;
           var email = $('#email').val();
-          $.getJSON( "lookup.php", { rid:  recordingId, sms: sms, email: email} )
+          $.getJSON( "addSender.php", { rid:  recordingId, sms: sms, email: email} )
             .done(function( json ) {
               console.log(json);
               var url = "http://54.165.184.141?id=";
               $("#qr").html("<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + url + "'>");
+            })
+	    .fail(function( jqxhr, textStatus, error ) {
+              var err = textStatus + ", " + error;
+              console.log( "Request Failed: " + err );
             });
+
        });
       });
     </script>
