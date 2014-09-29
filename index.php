@@ -91,9 +91,12 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script>
       $(document).foundation();
+      var senderId = <? echo $senderId; ?>;
  
       $(document).ready(function() {
-        
+        $("#send").click(function() {
+          alert("xx");
+        });
       });
 
 
