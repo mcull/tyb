@@ -11,7 +11,7 @@ if (strlen($url)) {
     $new_id = 2974 + addMessage($caller_id, $url);
  	
     $response = new Services_Twilio_Twiml();
-    $response->say('Thank you.  Your message id is $new_id.  Good bye');
+    $response->say('Thank you.  Your message id is ' . $new_id . ' Good bye');
     print $response;
 }
  
