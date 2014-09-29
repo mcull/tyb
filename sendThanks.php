@@ -29,7 +29,7 @@
         $gifterPhone,
         "Message from $name via ThankYouBack: \"$message\""
     );
-    echo "{'status':'success'}";
+    echo '{"sucess":"true"}';
 ?>
 
     
