@@ -9,7 +9,7 @@ $firstName = $_REQUEST['firstName'];
 $lastName = $_REQUEST['lastName'];
  
 if (strlen($recordingId) && strlen($sms) && strlen($email) && strlen($firstName) && strlen($lastName)) {
- 		echo json_encode(addSender($recording_id,$sms,$firstName,$lastName,$email));
+ 		echo json_encode(addSender($recordingId,$sms,$firstName,$lastName,$email));
 }
  
 ?>
