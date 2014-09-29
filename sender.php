@@ -82,7 +82,7 @@
         <h2>6</h2>
       </div>
       <div class="large-5 medium-5 small-5 columns">
-       Generate QR Code
+       Generate QR Code and URL
       </div>
       <div class="large-6 medium-6 small-6 columns">
         <button type="button" id="generateQR">Go</button>
@@ -106,8 +106,9 @@
           var messageId = $("#recordingId").val();
           $.getJSON( "lookup.php", { messageId: messageId } )
             .done(function( json ) {
-              $("#previewAudio").attr("href",json.audio_url);
-              $("#smsNum").html(json.caller_id);
+		console.log(json);
+              $("#previewAudio").attr("href",json.url);
+              $("#smsNum").html("Reply to number " + json.from);
               $(".row").show();
             })
             .fail(function( jqxhr, textStatus, error ) {
