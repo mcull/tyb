@@ -105,7 +105,13 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
             .done(function( json ) {
             $.getJSON("sendThanks.php",{sid:senderId,name:name,email:email,voxId:messageId,message:message})
               .done(function(innerJson) {
+<<<<<<< HEAD
                   window.location.replace("http://54.165.184.141/success.php");
+=======
+                if (innerJson.success == true) {
+                  window.location.replace("http://54.165.184.141/success.php");
+                }
+>>>>>>> 6068b4b39429d37bfe8be9f455c2076be2754757
             })
             .fail(function( jqxhr2, textStatus2, error2 ) {
               var err2 = textStatus2 + ", " + error2;
