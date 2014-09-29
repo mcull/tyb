@@ -9,6 +9,9 @@ $message = getMessage($sender['recordingId']);
 
 $fName = $sender['firstName'];
 
+$isSMS = $sender['sms'];
+$messageLabel = ($isSMS) ? "a text or email" : "an email";
+
 ?>
 
 <!doctype html>
@@ -60,7 +63,7 @@ $fName = $sender['firstName'];
     </div>
     <div class="row">
       <div class="large-6 medium-6 small-6 columns">
-        Or send <?php echo $fName; ?> a Text and/or Email <br>
+        Or send <?php echo $fName; ?> $messageLabel <br>
         <small>(your phone number and email will not be shown)</small>
       </div>
       <div class="large-6 medium-6 small-6 columns">
