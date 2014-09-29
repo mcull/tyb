@@ -66,7 +66,7 @@
         
       </div>
       <div class="large-6 medium-6 small-6 columns">
-        <input type="checkbox" name="sms" checked>  SMS?
+        <input type="checkbox" name="sms" id="sms" checked>  SMS?
       </div>
     </div>
     <div class="row roundTwo" id="emailRow" style="display:none" >
@@ -78,7 +78,7 @@
         Enter email
       </div>
       <div class="large-6 medium-6 small-6 columns">
-        <input type="text" name="email">
+        <input type="text" name="email" id="email">
       </div>
     </div>
     <div class="row roundTwo" id="QR" style="display:none" >
@@ -111,7 +111,6 @@
           var messageId = $("#recordingId").val();
           $.getJSON( "lookup.php", { id: messageId } )
             .done(function( json ) {
-		console.log(json);
               $("#previewAudio").attr("href",json.url);
               $("#smsNum").html("Reply to number " + json.from);
               $(".row").show();
@@ -127,7 +126,15 @@
         });
 
        $("#generateQR").click(function() {
-          $("#qr").html("<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=Hello%20world'>");
+          var recordingId = $('#recordingId').val();
+          var sms = $('#sms').is(':checked') ? 1 : 0;
+          var email = $('#email').val();
+          $.getJSON( "lookup.php", { rid:  recordingId, sms: sms, email: email} )
+            .done(function( json ) {
+              console.log(json);
+              var url = "http://54.165.184.141?id=";
+              $("#qr").html("<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + url + "'>");
+            });
        });
       });
     </script>
