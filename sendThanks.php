@@ -50,8 +50,12 @@
  
 
     $client = new Services_Twilio($AccountSid, $AuthToken);
- 
-    $messageText =  "Message from $name via ThankYouBack: \"$message\"";
+    $messageText =  "Message from $name via ThankYouBack";
+    if (strlen($message)) { 
+        $messageText .= ": \"$message\" ";
+    } else {
+        $messageText .= ". ";
+    }
     if (strlen($voxMessageId) && strlen($voxUrl)) {
         $messageText .= " Hear their message: " . shortenUrl($voxUrl);
     }
