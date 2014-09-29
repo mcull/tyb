@@ -6,14 +6,19 @@
     <title>Thank You Back</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
+        <link href='http://fonts.googleapis.com/css?family=Nixie+One|Unkempt|Playball' rel='stylesheet' type='text/css'>
+
     <link href='http://fonts.googleapis.com/css?family=Bilbo+Swash+Caps' rel='stylesheet' type='text/css'>
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
+  <body style="font-family:'Nixie One',sans-serif">
 
    <div class="row"> 
-      <div class="large-12 columns">
-        <h1><span id="title">Thank You Back!</span><span id="tm">&#0153;</tm></span></h1>
+      <div class="large-2 medium-2 small-4 columns">
+       <img src="img/tyb_logo.png" />
+      </div>
+       <div class="large-10 medium-10 small-8 columns">
+        <h1 style="font-family: Bilbo Swash Caps;color:red;">Add a message!</a>
       </div>
     </div>
     <div class="row">
