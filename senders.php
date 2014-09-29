@@ -77,7 +77,7 @@ function getSender($id){
     $sender = array();
     if($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
         $sender['id']=$line['id'];
-        $sender['recording_id']=$line['recording_id'];
+        $sender['recordingId']=$line['recording_id'];
         $sender['sms']=$line['sms'];
         $sender['firstName']=$line['firstName'];
         $sender['lastName']=$line['lastName'];
