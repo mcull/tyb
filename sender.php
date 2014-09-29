@@ -133,7 +133,7 @@
             .done(function( json ) {
               console.log(json);
               var url = "http://54.165.184.141?id=" + json;
-              $("#qr").html("<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + url + "'>");
+              $("#qr").html("<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + url + "'> or go to " + url);
             })
 	    .fail(function( jqxhr, textStatus, error ) {
               var err = textStatus + ", " + error;
