@@ -7,9 +7,7 @@ $senderId = base64_decode($_REQUEST['id']);
 $sender = getSender($senderId);
 $message = getMessage($sender['recordingId']);
 
-echo $sender['recordingId'];
-#echo $message[0];
-exit();
+$fName = $sender['firstName'];
 
 ?>
 
@@ -32,28 +30,28 @@ exit();
         <img src="img/tyb_logo.png" />
       </div>
       <div class="large-10 medium-10 small-10 columns">
-        <h1 style="font-family: Bilbo Swash Caps;color:red;">Thank Marc for your Gift!</a>
+        <h1 style="font-family: Bilbo Swash Caps;color:red;">Thank <?php echo $fName; ?> for your Gift!</a>
       </div>
     </div>
     <div class="row" style="font-family: Unkempt">
       <div class="large-12 columns" style="text-align:center;">
-        Just by saying Thank You, Marc will receive Money Back on his order.  
+        Just by saying Thank You, <?php echo $fName; ?> will receive Money Back on his order.  
         Plus
-        Marc (and you!) will receive valuable offers from this retailer on future orders.  This is how we can offer this amazing<br>
+        <?php echo $fName; ?> (and you!) will receive valuable offers from this retailer on future orders.  This is how we can offer this amazing<br>
         <b>FREE THANK YOU SERVICE!</b>
       </div>
     </div>
     <div class="row">
       <div class="large-6 medium-6 small-6 columns">
-        Marc has included a personal message for you:
+        <?php echo $fName; ?> has included a personal message for you:
       </div>
       <div class="large-6 medium-6 small-6 columns">
-        <a class="round button" id="play" target="_new" href="<?php echo $message['audio_url']; ?>">Play</a>
+        <a class="round button" id="play" target="_new" href="<?php echo $message['url']; ?>">Play</a>
       </div>
     </div>
     <div class="row">
       <div class="large-6 medium-6 small-6 columns">
-        Send a Thank You Message to Marc: 
+        Send a Thank You Message to <?php echo $fName; ?>: 
       </div>
       <div class="large-6 medium-6 small-6 columns">
         <a href="tel:5026408205" id="record" class="round button">Record</a>
@@ -62,7 +60,7 @@ exit();
     </div>
     <div class="row">
       <div class="large-6 medium-6 small-6 columns">
-        Or send Marc a Text or Mail a Thank You Card <br>
+        Or send <?php echo $fName; ?> a Text and/or Email <br>
         <small>(your phone number and email will not be shown)</small>
       </div>
       <div class="large-6 medium-6 small-6 columns">
