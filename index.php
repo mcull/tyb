@@ -102,18 +102,19 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
 
           $.getJSON( "addRecipient.php", { sid:  senderId, name: name, email: email,mid: messageId} )
             .done(function( json ) {
-	      $.getJSON("sendThanks.php",{sid:senderId,message:message,name:name,email:email,voxId:msgId}).done(function(json) {
-                console.log("trying to send thanks?? " + json);
-	      })
-	      .fail(function( jqxhr, textStatus, error ) {
-                var err = textStatus + ", " + error;
-                console.log( "Request Failed: " + err );
-              })
+            $.getJSON("sendThanks.php",{sid:senderId,message:message,name:name,email:email,voxId:msgId})
+              .done(function(json) {
+              console.log("trying to send thanks?? " + json);
             })
-	    .fail(function( jqxhr, textStatus, error ) {
+            .fail(function( jqxhr, textStatus, error ) {
               var err = textStatus + ", " + error;
               console.log( "Request Failed: " + err );
             });
+          })
+          .fail(function( jqxhr, textStatus, error ) {
+            var err = textStatus + ", " + error;
+            console.log( "Request Failed: " + err );
+          });
 
         });
       });
