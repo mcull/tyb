@@ -52,7 +52,7 @@ function getSenders(){
  
     mysql_close();
  
-    return $messages;
+    return $senders;
 }
  
 function getSender($id){
@@ -83,7 +83,7 @@ function getSender($id){
  
     mysql_close();
  
-    return $message;
+    return $sender;
 }
  
 ?>
