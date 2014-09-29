@@ -3,7 +3,7 @@
 include "messages.php";
 include "senders.php";
 
-$senderId = $_REQUEST['id'];
+$senderId = base64_decode($_REQUEST['id']);
 $sender = getSender($senderId);
 $message = getMessage($sender['recordingId']);
 
