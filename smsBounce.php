@@ -19,7 +19,7 @@
     //use the body to try to look up a sender's message.
     //send back a url to that webpage.
 
-    while (startsWith($body,"0") {
+    while (startsWith($body,"0")) {
         $body = substr($body,1);
     }
     $response = shortenUrl("http://54.165.184.141/?id=" . base64_encode($body));
