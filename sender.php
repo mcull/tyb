@@ -63,9 +63,10 @@
         <h2>4</h2>
       </div>
       <div class="large-5 medium-5 small-5 columns" id="smsNum">
-        
+       Reply to number
       </div>
       <div class="large-6 medium-6 small-6 columns">
+        <input type="text" name="replyNum" id="replyNum">
         <input type="checkbox" name="sms" id="sms" checked>  SMS?
       </div>
     </div>
@@ -125,17 +126,13 @@
           $.getJSON( "lookup.php", { id: messageId } )
             .done(function( json ) {
               $("#previewAudio").attr("href",json.url);
-              $("#smsNum").html("Reply to number " + json.from);
+              $("#replyNum").val( json.from);
               $(".row").show();
             })
             .fail(function( jqxhr, textStatus, error ) {
               var err = textStatus + ", " + error;
               console.log( "Request Failed: " + err );
           });
-
-          
-            
-
         });
 
        $("#generateQR").click(function() {
@@ -144,17 +141,18 @@
           var email = $('#email').val();
           var fName = $('#firstName').val();
           var lName = $('#lastName').val();
-          $.getJSON( "addSender.php", { rid:  recordingId, sms: sms, email: email,firstName:fName, lastName:lName} )
+	  var replyToNum = $('#replyNum').val();
+          $.getJSON( "addSender.php", { rid:  recordingId, sms: sms, email: email,firstName:fName, lastName:lName, replyToNum:replyToNum} )
             .done(function( json ) {
               console.log(json);
+   
               var url = "http://54.165.184.141?id=" + btoa(json);
-              $("#qr").html("<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + url + "'> or go to " + url);
+              $("#qr").html("<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + url + "'> or go to " + url + " or text " + json + " to 646.374.2529");
             })
 	    .fail(function( jqxhr, textStatus, error ) {
               var err = textStatus + ", " + error;
               console.log( "Request Failed: " + err );
             });
-
        });
       });
     </script>

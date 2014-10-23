@@ -57,7 +57,7 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
         Send a Thank You Message to <?php echo $fName; ?>: 
       </div>
       <div class="large-6 medium-6 small-6 columns">
-        <a href="tel:5026408205" id="record" class="round button">Record</a>
+        <a href="tel:6463742529" id="record" class="round button">Record</a>
         <input type="text" placeholder="Message Id" id="msgId"/>
       </div>
     </div>
@@ -80,7 +80,6 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
         <a href="javascript:void(0);" id="send" class="round button">Send</a>
       </div>
     </div>   
-    
     <script src="js/vendor/jquery.js"></script>
     
     <script src="js/foundation.min.js"></script>
@@ -105,13 +104,7 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
             .done(function( json ) {
             $.getJSON("sendThanks.php",{sid:senderId,name:name,email:email,voxId:messageId,message:message})
               .done(function(innerJson) {
-<<<<<<< HEAD
                   window.location.replace("http://54.165.184.141/success.php");
-=======
-                if (innerJson.success == true) {
-                  window.location.replace("http://54.165.184.141/success.php");
-                }
->>>>>>> 6068b4b39429d37bfe8be9f455c2076be2754757
             })
             .fail(function( jqxhr2, textStatus2, error2 ) {
               var err2 = textStatus2 + ", " + error2;

@@ -32,6 +32,24 @@ function addMessage($caller_id, $recording_url) {
     return $id;
 }
  
+function updateMessage($message_id,$field_name, $field_val) {
+    global $db_name, $db_host,$db_user,$db_passwd;
+ 
+    mysql_connect($db_host, $db_user, $db_passwd)
+        or die('Could not connect: ' . mysql_error());
+ 
+    mysql_select_db($db_name) or die('Could not select database');
+ 
+    // Performing SQL query
+    $query = sprintf("update `messages` set `%s` = '%s' "
+        . "where `id` = %d", $field_name, $field_val,
+        $message_id);
+ 
+    if (!(mysql_query($query))) {
+	return ('Query failed: ' . mysql_error() . ' ... ' . $query);
+    }
+    mysql_close();
+}
 function getMessages($voicemail_exten,$flag=0){
     global $db_name, $db_host,$db_user,$db_passwd;
  
