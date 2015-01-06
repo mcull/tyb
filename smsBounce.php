@@ -22,12 +22,11 @@
     while (startsWith($body,"0")) {
         $body = substr($body,1);
     }
-    $response = shortenUrl("http://54.165.184.141/?id=" . base64_encode($body));
+    $url = "http://54.165.184.141/?id=" . base64_encode($body);
 
- 
     $sms = $client->account->messages->sendMessage(
         "646-374-2529", 
         $number,
-        "Welcome!  Click $response to hear the gift message."
+        "Welcome!  Click $url to hear the gift message."
     );
     
