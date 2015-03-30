@@ -146,7 +146,7 @@
             .done(function( json ) {
               console.log(json);
    
-              var url = "http://54.165.184.141?id=" + btoa(json);
+              var url = "http://54.175.196.110?id=" + btoa(json);
               $("#qr").html("<img src='https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + url + "'> or go to " + url + " or text " + json + " to 646.374.2529");
             })
 	    .fail(function( jqxhr, textStatus, error ) {

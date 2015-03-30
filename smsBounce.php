@@ -22,7 +22,8 @@
     while (startsWith($body,"0")) {
         $body = substr($body,1);
     }
-    $url = "http://54.165.184.141/?id=" . base64_encode($body);
+
+    $url = "http://54.175.196.110/?id=" . base64_encode($body);
 
     $sms = $client->account->messages->sendMessage(
         "646-374-2529", 

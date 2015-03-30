@@ -104,7 +104,7 @@ $messageLabel = ($isSMS) ? "a text or email" : "an email";
             .done(function( json ) {
             $.getJSON("sendThanks.php",{sid:senderId,name:name,email:email,voxId:messageId,message:message})
               .done(function(innerJson) {
-                  window.location.replace("http://54.165.184.141/success.php");
+                  window.location.replace("/success.php");
             })
             .fail(function( jqxhr2, textStatus2, error2 ) {
               var err2 = textStatus2 + ", " + error2;
